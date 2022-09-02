@@ -5,7 +5,7 @@ let LORA = {
   _init: ffi('void *mgos_LORA_init(void *)'),
 
 
-  createLMIC: function(NSSPin, NRESETPin, txEnPin, rxEnPin){
+  createLORA: function(NSSPin, NRESETPin, txEnPin, rxEnPin){
     let obj = Object.create(LORA._proto);
     obj.lora = LORA._create();
     let res = LORA._init(obj.lora);
