@@ -4,6 +4,7 @@
 ## Overview
 
 This library is intended to use library of lora1276 by NiceRF for arduino with mongoos os.
+Library has been forked. This one adds JavaScript capabilities.
 
 ### Usage
 
@@ -12,7 +13,7 @@ mos.yml, add:
 config_schema:
  - ["", ]
 libs:
- - origin: https://github.com/lidraikh/arduino-lora1276
+ - origin: https://github.com/Kannix2005/arduino-lora1276
   ```
   
   main.c, add:
