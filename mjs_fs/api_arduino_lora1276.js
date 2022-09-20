@@ -7,7 +7,7 @@ let LORA = {
 
   createLORA: function(NSSPin, NRESETPin, txEnPin, rxEnPin){
     let obj = Object.create(LORA._proto);
-    obj.lora = LORA._create();
+    obj.lora = LORA._create(NSSPin, NRESETPin, txEnPin, rxEnPin);
     let res = LORA._init(obj.lora);
     if (res !== true) {
       return undefined;
