@@ -1,5 +1,6 @@
 let LORA = {
 
+  _lora: {},
 
   _create: ffi('void* mgos_LORA_create(int, int, int, int)'),
   _init: ffi('bool mgos_LORA_init(void*)'),
@@ -20,18 +21,17 @@ let LORA = {
   // _readSSI: ffi('void *readRSSI(void*, int)'),
 
   create: function(NSSPin, NRESETPin, txEnPin, rxEnPin){
-    let obj = Object.create(LORA._proto);
-    obj.lora = LORA._create(NSSPin, NRESETPin, txEnPin, rxEnPin);
-    return obj;
+    this._lora = LORA._create(NSSPin, NRESETPin, txEnPin, rxEnPin);
+    return this;
   },
-  init: function(loraObj){
-    return LORA._init(loraObj);
+  init: function(){
+    return LORA._init(this._lora);
   },
   txPacket: function(sendBuffer, packetLength){
-    return LORA._tx(this, sendBuffer, packetLength)
+    return LORA._tx(this._lora, sendBuffer, packetLength)
   },
   rxPacket: function(receiveBuffer){
-    return LORA._tx(this, receiveBuffer)
+    return LORA._tx(this._lora, receiveBuffer)
   },
   waitIRQ: function(loraObj){
 
