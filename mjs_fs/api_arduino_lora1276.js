@@ -22,7 +22,7 @@ let LORA = {
 
   create: function(NSSPin, NRESETPin, txEnPin, rxEnPin){
     //print("Create with: " + NSSPin + " " + NRESETPin + " " + txEnPin + " " + rxEnPin);
-    return this._create(26, 24, 30, 29);
+    return this._create(4, 2, 18, 5);
   },
   init: function(loraObj){
     return this._init(loraObj);
