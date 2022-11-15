@@ -7,7 +7,6 @@
 #endif
 
 #include "LORA.h"
-#include "Print.h"
 
 #ifdef __cplusplus
 extern "C"

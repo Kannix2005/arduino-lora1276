@@ -2,7 +2,6 @@
 
 LORA *mgos_LORA_create(int NSSPin, int NRESETPin, int txEnPin, int rxEnPin)
 {
-    Print("Create LORA Object");
     return new LORA(NSSPin, NRESETPin, txEnPin, rxEnPin);
 }
 
@@ -17,7 +16,6 @@ void mgos_LORA_close(LORA *lora)
 
 bool mgos_LORA_init(LORA *lora)
 {
-    Print("Init LORA");
     if (lora == nullptr)
         return false;
     return lora->init();
