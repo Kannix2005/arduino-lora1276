@@ -2,7 +2,7 @@ let LORA = {
 
   _lora: {},
 
-  _create: ffi('void* mgos_LORA_create(int, int, int, int)'),
+  _create: ffi('void *mgos_LORA_create(int, int, int, int)'),
   _init: ffi('bool mgos_LORA_init(void*)'),
   _tx: ffi('bool mgos_LORA_txPacket(void*, int, int)'),
   _rx: ffi('bool mgos_LORA_rxPacket(void*, int)'),
