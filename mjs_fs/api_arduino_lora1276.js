@@ -21,8 +21,8 @@ let LORA = {
   // _readSSI: ffi('void *readRSSI(void*, int)'),
 
   create: function(NSSPin, NRESETPin, txEnPin, rxEnPin){
-    print("Create with: " + NSSPin + " " + NRESETPin + " " + txEnPin + " " + rxEnPin);
-    return this._create(NSSPin, NRESETPin, txEnPin, rxEnPin);
+    //print("Create with: " + NSSPin + " " + NRESETPin + " " + txEnPin + " " + rxEnPin);
+    return this._create(26, 24, 30, 29);
   },
   init: function(loraObj){
     return this._init(loraObj);
