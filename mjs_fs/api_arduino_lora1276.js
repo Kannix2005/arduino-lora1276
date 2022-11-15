@@ -22,8 +22,11 @@ let LORA = {
 
   create: function(NSSPin, NRESETPin, txEnPin, rxEnPin){
     //print("Create with: " + NSSPin + " " + NRESETPin + " " + txEnPin + " " + rxEnPin);
+    print("Test");
     let obj = Object.create(LORA._proto);
+    print("Test2");
     obj.lora = LORA._create(NSSPin, NRESETPin, txEnPin, rxEnPin);
+    print("Test3");
     return obj;
   },
   _proto: {
