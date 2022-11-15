@@ -23,16 +23,18 @@ let LORA = {
     let obj = Object.create(LORA._proto);
     obj.lora = LORA._create(NSSPin, NRESETPin, txEnPin, rxEnPin);
     let res = LORA._init(obj.lora);
+    print("LORA Object: ")
+    print(obj.lora)
     if (res !== true) {
       return undefined;
     }
     return obj;
   },
   txPacket: function(sendBuffer, packetLength){
-    return this._tx(this, sendBuffer, packetLength)
+    return LORA._tx(this, sendBuffer, packetLength)
   },
   rxPacket: function(receiveBuffer){
-    return this._tx(this, receiveBuffer)
+    return LORA._tx(this, receiveBuffer)
   },
   waitIRQ: function(loraObj){
 
