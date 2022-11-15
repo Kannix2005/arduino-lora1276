@@ -21,17 +21,17 @@ let LORA = {
   // _readSSI: ffi('void *readRSSI(void*, int)'),
 
   create: function(NSSPin, NRESETPin, txEnPin, rxEnPin){
-    this._lora = LORA._create(NSSPin, NRESETPin, txEnPin, rxEnPin);
+    this._lora = this._create(NSSPin, NRESETPin, txEnPin, rxEnPin);
     return this;
   },
   init: function(){
-    return LORA._init(this._lora);
+    return this._init(this._lora);
   },
   txPacket: function(sendBuffer, packetLength){
-    return LORA._tx(this._lora, sendBuffer, packetLength)
+    return this._tx(this._lora, sendBuffer, packetLength)
   },
   rxPacket: function(receiveBuffer){
-    return LORA._tx(this._lora, receiveBuffer)
+    return this._tx(this._lora, receiveBuffer)
   },
   waitIRQ: function(loraObj){
 
@@ -71,11 +71,6 @@ let LORA = {
   },
   doReadSSI: function(loraObj){
 
-  },
-  _proto: {
-    info: function (){
-      return "LORA Interface"
-    }
   }
 
 }
