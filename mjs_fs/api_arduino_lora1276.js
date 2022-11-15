@@ -4,8 +4,8 @@ let LORA = {
 
   _create: ffi('void *mgos_LORA_create(int, int, int, int)'),
   _init: ffi('bool mgos_LORA_init(void*)'),
-  _tx: ffi('bool mgos_LORA_txPacket(void*, int, int)'),
-  _rx: ffi('bool mgos_LORA_rxPacket(void*, int)'),
+  _tx: ffi('bool mgos_LORA_txPacket(void*, char*, int)'),
+  _rx: ffi('bool mgos_LORA_rxPacket(void*, char*)'),
   _waitIRQ: ffi('bool mgos_LORA_waitIrq(void*, int)'),
   _rxInit: ffi('bool mgos_LORA_rxInit(void*, int, int)'),
   _enterStdBy: ffi('void* mgos_LORA_enterStbyMode(void*)'),
