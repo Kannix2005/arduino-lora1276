@@ -22,60 +22,62 @@ let LORA = {
 
   create: function(NSSPin, NRESETPin, txEnPin, rxEnPin){
     //print("Create with: " + NSSPin + " " + NRESETPin + " " + txEnPin + " " + rxEnPin);
-    return this._create(4, 2, 18, 5);
-  },
-  init: function(loraObj){
-    return this._init(loraObj);
-  },
-  txPacket: function(loraObj, sendBuffer, packetLength){
-    return this._tx(loraObj, sendBuffer, packetLength)
-  },
-  rxPacket: function(loraObj, receiveBuffer){
-    return this._tx(loraObj, receiveBuffer)
-  },
-  waitIRQ: function(loraObj){
-
-  },
-  rxInit: function(loraObj){
-
-  },
-  enterStandby: function(loraObj){
-
-  },
-  enterSleep: function(loraObj){
-
-  },
-  clearInterrupt: function(loraObj){
-
-  },
-  setFrequency: function(loraObj){
-
-  },
-  setRFParameters: function(loraObj){
-
-  },
-  setPreambleLength: function(loraObj){
-
-  },
-  setHeaderMode: function(loraObj){
-
-  },
-  setPayloadLength: function(loraObj){
-
-  },
-  setTXPower: function(loraObj){
-
-  },
-  setRXTimeout: function(loraObj){
-
-  },
-  doReadSSI: function(loraObj){
-
+    let obj = Object.create(LORA._proto);
+    obj.lora = LORA._create(NSSPin, NRESETPin, txEnPin, rxEnPin);
+    return obj;
   },
   _proto: {
     info: function (){
       return "LORA Interface"
-    }
+    },
+    init: function(){
+      return LORA._init(this.lora);
+    },
+    txPacket: function(sendBuffer, packetLength){
+      return LORA._tx(this.lora, sendBuffer, packetLength)
+    },
+    rxPacket: function(receiveBuffer){
+      return LORA._tx(this.lora, receiveBuffer)
+    },
+    waitIRQ: function(loraObj){
+  
+    },
+    rxInit: function(loraObj){
+  
+    },
+    enterStandby: function(loraObj){
+  
+    },
+    enterSleep: function(loraObj){
+  
+    },
+    clearInterrupt: function(loraObj){
+  
+    },
+    setFrequency: function(loraObj){
+  
+    },
+    setRFParameters: function(loraObj){
+  
+    },
+    setPreambleLength: function(loraObj){
+  
+    },
+    setHeaderMode: function(loraObj){
+  
+    },
+    setPayloadLength: function(loraObj){
+  
+    },
+    setTXPower: function(loraObj){
+  
+    },
+    setRXTimeout: function(loraObj){
+  
+    },
+    doReadSSI: function(loraObj){
+  
+    },
   }
 
 }
