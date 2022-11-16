@@ -7,7 +7,7 @@ let LORA = {
   _tx: ffi('bool mgos_LORA_txPacket(void *, char *, int)'),
   _rx: ffi('bool mgos_LORA_rxPacket(void *, char *)'),
   _waitIRQ: ffi('bool mgos_LORA_waitIrq(void *, int)'),
-  _rxInit: ffi('bool mgos_LORA_rxInit(void *, int, int)'),
+  _rxInit: ffi('bool mgos_LORA_rxInit(void *)'),
   _enterStdBy: ffi('void* mgos_LORA_enterStbyMode(void *)'),
   _enterSlp: ffi('void* mgos_LORA_enterSleepMode(void *)'),
   _clrInt: ffi('void* mgos_LORA_clrInterrupt(void *)'),
@@ -18,7 +18,7 @@ let LORA = {
   _setPayloadLen: ffi('bool mgos_LORA_setPayloadLength(void *, int)'),
   _setTxPower: ffi('bool mgos_LORA_setTxPower(void *, int)'),
   _setRxTimeout: ffi('bool mgos_LORA_setRxTimeOut(void *, int)'),
-  // _readSSI: ffi('void *readRSSI(void*, int)'),
+  _readSSI: ffi('void *readRSSI(void*, int)'),
 
   create: function(NSSPin, NRESETPin, txEnPin, rxEnPin){
     //print("Create with: " + NSSPin + " " + NRESETPin + " " + txEnPin + " " + rxEnPin);
@@ -42,44 +42,44 @@ let LORA = {
     rxPacket: function(receiveBuffer){
       return LORA._tx(this.lora, receiveBuffer)
     },
-    waitIRQ: function(loraObj){
-  
+    waitIRQ: function(irqmask){
+      return LORA._waitIRQ(this.lora, irqmask)
     },
-    rxInit: function(loraObj){
-  
+    rxInit: function(){
+      return LORA._rxInit(this.lora)
     },
-    enterStandby: function(loraObj){
-  
+    enterStandby: function(){
+      return LORA._enterStdBy(this.lora)
     },
-    enterSleep: function(loraObj){
-  
+    enterSleep: function(){
+      return LORA._enterSlp(this.lora)
     },
-    clearInterrupt: function(loraObj){
-  
+    clearInterrupt: function(){
+      return LORA._clrInt(this.lora)
     },
-    setFrequency: function(loraObj){
-  
+    setFrequency: function(freq){
+      return LORA._setFreq(this.lora, freq)
     },
-    setRFParameters: function(loraObj){
-  
+    setRFParameters: function(){//////////
+      return LORA._setRFParams(this.lora, freq)
     },
-    setPreambleLength: function(loraObj){
-  
+    setPreambleLength: function(length){
+      return LORA._setPreamblLen(this.lora, length)
     },
-    setHeaderMode: function(loraObj){
-  
+    setHeaderMode: function(mode){
+      return LORA._setHeaderMode(this.lora, mode)
     },
-    setPayloadLength: function(loraObj){
-  
+    setPayloadLength: function(length){
+      return LORA._setPayloadLen(this.lora, length)
     },
-    setTXPower: function(loraObj){
-  
+    setTXPower: function(power){
+      return LORA._setTxPower(this.lora, power)
     },
-    setRXTimeout: function(loraObj){
-  
+    setRXTimeout: function(timeout){
+      return LORA._setRxTimeout(this.lora, timeout)
     },
-    doReadSSI: function(loraObj){
-  
+    readSSI: function(){
+      return LORA._readSSI(this.lora)
     },
   }
 
