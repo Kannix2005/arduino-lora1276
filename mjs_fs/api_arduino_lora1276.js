@@ -78,8 +78,8 @@ let LORA = {
     setRXTimeout: function(timeout){
       return LORA._setRxTimeout(this.lora, timeout)
     },
-    readSSI: function(){
-      return LORA._readSSI(this.lora)
+    readSSI: function(mode){
+      return LORA._readSSI(this.lora, mode)
     },
   }
 
