@@ -84,7 +84,7 @@ extern "C"
     ///  Read rssi
     ///	 @param	 mode	   0 read  current rssi, 1 read rssi of last packet received
     ///  @return   value of rssi
-    int readRSSI(int mode);
+    int readRSSI(LORA *lora, int mode);
 
 #ifdef __cplusplus
 }

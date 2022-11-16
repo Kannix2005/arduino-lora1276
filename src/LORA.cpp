@@ -253,9 +253,7 @@ bool LORA::rxInit()
 	return true;
 }
 bool LORA::txPacket(uint8_t* sendbuf,uint8_t sendLen)
-{
-	uint8_t temp;
-	
+{	
 	setTxInterrupt();	// enable TxDoneIrq
 	clrInterrupt();		// clear irq flag
 	writeFifo(sendbuf,sendLen);
