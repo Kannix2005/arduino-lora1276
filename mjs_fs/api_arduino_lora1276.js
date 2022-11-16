@@ -21,7 +21,7 @@ let LORA = {
   _readSSI: ffi('int readRSSI(void *, int)'),
 
   create: function(NSSPin, NRESETPin, txEnPin, rxEnPin){
-    print("Create with: " + NSSPin + " " + NRESETPin + " " + txEnPin + " " + rxEnPin);
+    //print("Create with: " + NSSPin + " " + NRESETPin + " " + txEnPin + " " + rxEnPin);
     let obj = Object.create(LORA._proto);
     obj.lora = LORA._create(NSSPin, NRESETPin, txEnPin, rxEnPin);
     return obj;
